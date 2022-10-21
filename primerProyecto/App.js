@@ -5,6 +5,12 @@ export default function App() {
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
   const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 30,
+      paddingTop: 100,
+      backgroundColor: 'red'
+    },
     botones: {
       paddingTop: 20,
       paddingBottom: 20,
@@ -13,23 +19,19 @@ export default function App() {
       borderRadius: 200,
       backgroundColor: 'black'
     },
-    todo: {
-      paddingTop: 20,
-      paddingBottom: 20,
-      paddingLeft: 30,
-      paddingRight: 30,
-      backgroundColor: 'red'
-      
-    },
     texto: {
       color: 'black',
       fontSize: 30,
-      textAlign: 'center'
+      textAlign: 'center',
+      paddingTop: 50
     }
   })
 
   return (
-    <View style={styles.todo}>
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.texto}>Contador</Text>
+      </View>
       <View style={styles.botones}>
         <Button
           onPress={() => {
