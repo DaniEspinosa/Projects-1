@@ -1,64 +1,64 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, Text, View } from 'react-native';
+import { StyleSheet, Button, Text, View, TextInput } from 'react-native';
 
 export default function App() {
-  const [count1, setCount1] = useState(0);
-  const [count2, setCount2] = useState(0);
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      padding: 30,
-      paddingTop: 100,
-      backgroundColor: 'red'
-    },
-    botones: {
-      paddingTop: 20,
-      paddingBottom: 20,
-      paddingLeft: 30,
-      paddingRight: 30,
-      borderRadius: 200,
-      backgroundColor: 'black'
-    },
-    texto: {
-      color: 'black',
-      fontSize: 30,
-      textAlign: 'center',
-      paddingTop: 50
-    }
-  })
+  const [edad, setEdad] = useState(null);
+  const [texto, setText] = useState(null);
+
+  const printText = () => {
+    setText(
+      <Text style={styles.texto}>
+        {edad == 18 ? 'Acaba de ser mayor de edad' : edad < 18 ? 'Es menor de edad' : 'Es mayor de edad'}
+      </Text>
+    )
+  }
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.texto}>Contador</Text>
+    <View>
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.texto}>Hola mi nombre es </Text>
+        <Text style={styles.textoNombre}>Daniel Espinosa</Text>
       </View>
+      <Text style={styles.texto}>Escribe aqui tu edad</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Edad..."
+        keyboardType="numeric"
+        onChangeText={edad => setEdad(edad)}
+      />
+      <Text>{texto}</Text>
       <View style={styles.botones}>
         <Button
-          onPress={() => {
-            setCount1(0);
-            setCount2(0);
-          }}
-          title={"RESETEA"}
+          onPress={printText}
+          title={"Finalizar"}
         />
       </View>
-      <View style={styles.botones}>
-        <Button
-          onPress={() => {
-            setCount1(count1 + 1);
-          }}
-          title={"DE 1 EN 1"}
-        />
-      </View>
-      <View style={styles.botones}>
-        <Button
-          onPress={() => {
-            setCount2(count2 + 10);
-          }}
-          title={"DE 10 EN 10"}
-        />
-      </View>
-      <Text style={styles.texto}>Contador 1 + 1: {count1}</Text>
-      <Text style={styles.texto}>Contador 10 + 10: {count2}</Text>
     </View>
-  )
+  );
 }
+
+const styles = StyleSheet.create({
+  texto: {
+    color: 'black',
+    fontSize: 20,
+    paddingTop: 50
+  },
+  textoNombre: {
+    color: 'blue',
+    fontSize: 20,
+    paddingTop: 50
+  },
+  botones: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
+    borderRadius: 200,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  }
+})
