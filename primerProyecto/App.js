@@ -5,15 +5,20 @@ export default function App() {
   const [edad, setEdad] = useState(null);
   const [texto, setText] = useState(null);
 
-  const printText = () => {
-    setText(
-      <Text style={{ flexDirection: 'row' }}>
-        {edad == 18 ? <Text style={styles.texto}><Text style={styles.textoResulatdo}>Acaba de ser mayor</Text> de edad</Text>
-        : edad < 18 ? <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>menor</Text> de edad</Text>
-        : <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>mayor</Text> de edad</Text>}
-      </Text>
-    )
+  // const printText = () => {
+  //   setText(
+  //     <Text style={{ flexDirection: 'row' }}>
+  //       {edad == 18 ? <Text style={styles.texto}><Text style={styles.textoResulatdo}>Acaba de ser mayor</Text> de edad</Text>
+  //         : edad < 18 ? <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>menor</Text> de edad</Text>
+  //           : <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>mayor</Text> de edad</Text>}
+  //     </Text>
+  //   )
+  // }
+
+  const Alerta = () => {
+    return (edad == 18 ? 'Tiene 18 años' : edad < 18 ? 'Es menor de edad' : 'Es mayor de edad')
   }
+
 
   return (
     <View>
@@ -30,8 +35,12 @@ export default function App() {
       />
       <Text>{texto}</Text>
       <View style={styles.botones}>
-        <Button
+        {/* <Button
           onPress={printText}
+          title={"Finalizar"}
+        /> */}
+        <Button
+          onPress={() => Alert.alert(Alerta())}
           title={"Finalizar"}
         />
       </View>
