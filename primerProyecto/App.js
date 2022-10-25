@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Button, Text, View, TextInput, Alert } from 'react-native';
 
 export default function App() {
   const [edad, setEdad] = useState(null);
@@ -7,8 +7,10 @@ export default function App() {
 
   const printText = () => {
     setText(
-      <Text style={styles.texto}>
-        {edad == 18 ? 'Acaba de ser mayor de edad' : edad < 18 ? 'Es menor de edad' : 'Es mayor de edad'}
+      <Text style={{ flexDirection: 'row' }}>
+        {edad == 18 ? <Text style={styles.texto}><Text style={styles.textoResulatdo}>Acaba de ser mayor</Text> de edad</Text>
+        : edad < 18 ? <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>menor</Text> de edad</Text>
+        : <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>mayor</Text> de edad</Text>}
       </Text>
     )
   }
@@ -60,5 +62,8 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+  },
+  textoResulatdo: {
+    color: 'red'
   }
 })
