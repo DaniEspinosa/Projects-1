@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import { Switch, StyleSheet, Image, ScrollView } from 'react-native'
 import img1 from './img/homer.gif'
 
