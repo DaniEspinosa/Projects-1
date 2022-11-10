@@ -6,7 +6,7 @@ export default function App() {
   const [edad, setEdad] = useState();
   const [nombre, setNombre] = useState();
   const [apellido, setApellido] = useState();
-  const [correo, setCorreo] = useState();
+  const [email, setEmail] = useState();
   const [isEnabled, setIsEnabled] = useState();
   const [texto, setText] = useState(null);
   const [imagen, setImagen] = useState();
@@ -14,12 +14,14 @@ export default function App() {
 
   const mostrarResultado = () => {
     setText(
-      <Text style={styles.respuesta}>Mi nombre es {nombre} {apellido} con edad {edad}, con correo {correo}, con sexo {isEnabled ? <Text>Mujer</Text> : <Text>Hombre</Text>} </Text>
+      <Text style={styles.respuesta}>Mi nombre es {nombre} {apellido} con edad {edad}, con correo {email}, con sexo {isEnabled ? <Text>Mujer</Text> : <Text>Hombre</Text>} </Text>
     )
     setImagen(
       <Image style={styles.myImageStyle} source={img1}/>
     )
   }
+
+  
 
   return (
     <ScrollView>
@@ -59,7 +61,7 @@ export default function App() {
           style={styles.input}
           placeholder="Correo..."
           keyboardType="generic"
-          onChangeText={correo => setCorreo(correo)}
+          onChangeText={correo => setEmail(correo)}
         />
       </View>
 
