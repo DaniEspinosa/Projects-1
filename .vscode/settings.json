@@ -1,4 +1,7 @@
 {
     "cSpell.language": "en,es-ES",
-    "liveServer.settings.port": 5555
+    "liveServer.settings.port": 5555,
+    "cSpell.words": [
+        "snum"
+    ]
 }

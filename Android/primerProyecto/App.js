@@ -19,10 +19,6 @@ export default function App() {
     setImagen(
       <Image style={styles.myImageStyle} source={img1}/>
     )
-
-
-
-
   }
 
   return (
