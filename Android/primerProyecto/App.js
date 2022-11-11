@@ -3,10 +3,10 @@ import { Switch, StyleSheet, Image, ScrollView, Button, TextInput, View, Text, A
 import img1 from './img/homer.gif'
 
 export default function App() {
-  const [age, setAge] = useState();
-  const [name, setName] = useState();
-  const [surname, setSurname] = useState();
-  const [email, setEmail] = useState();
+  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
   const [isEnabled, setIsEnabled] = useState();
   const [texto, setText] = useState(null);
   const [imagen, setImagen] = useState();
