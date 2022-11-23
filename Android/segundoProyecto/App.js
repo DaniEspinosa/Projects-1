@@ -1,37 +1,51 @@
 import React from 'react';
-import { FlatList, Text, StyleSheet, StatusBar, View } from 'react-native';
+import { FlatList, Text, StyleSheet, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function App() {
   const DATA = [
     {
       id: '1',
-      title: 'Primer elemento',
+      name: 'Andres',
+      surname: 'Luna',
+      phone: '722229443',
+      icons: <Icon name="account-circle" size={50} />
     },
     {
       id: '2',
-      title: 'Segundo elemento',
+      name: 'Daniel',
+      surname: 'Espinosa',
+      phone: '566664225',
+      icons: <Icon name="tram" size={50} />
     },
     {
       id: '3',
-      title: 'Tercer elemento',
+      name: 'Lucas',
+      surname: 'Garcia',
+      phone: '745852116',
+      icons: <Icon name="account-convert" size={50} />
     },
     {
       id: '4',
-      title: 'Cuarto elemento',
+      name: 'Carlos',
+      surname: 'Mauri',
+      phone: '765485334',
+      icons: <Icon name="account-hard-hat" size={50} />
     },
     {
       id: '5',
-      title: 'Quinto elemento',
+      name: 'Jimenez',
+      surname: 'Antonio',
+      phone: '748521667',
+      icons: <Icon style={styles.styleIcon} name="account-minus-outline" size={50} />
     },
   ]
 
-  const Item = ({ title }) => (
-    <Text style={styles.text}>{title}</Text>
-  )
-
-  const printElement = ({ item }) => (
-    <Item title={item.title}/>
-  )
+  const printElement = ({ item }) => {
+    return (
+      <Text style={styles.text}>{item.name} {item.surname}, {item.phone} {item.icons}</Text>
+    )
+  }
 
   return (
     <FlatList
@@ -44,7 +58,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30,
+    fontSize: 20,
     margin: 15
-  },
+  }
 });
