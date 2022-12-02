@@ -4,6 +4,8 @@ console.log('Mi primer nodejs');
 import express from 'express'
 import ejs from 'ejs'
 
+import indexRoutes from './routes/index.js'
+
 import { dirname, join } from 'path'
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -20,21 +22,11 @@ const app = express()
     app.set('views', join(__dirname, 'views'))
     app.set('view engine', 'ejs')
 
+    // Configurar routes
+    app.use(indexRoutes)
 
-// Ruta de las paginas
-app.get('/', (req, res) => {
-    res.render('index', {title: 'A ver si funciona'})
-})
+    //Configurar estilos CSS
+    app.use(express.static(join(__dirname, 'public')))
 
-app.get('/Registro', (req, res) => {
-    res.render('registro')
-})
 
-app.get('/Login', (req, res) => {
-    res.render('login')
-})
-
-app.get('/Crud', (req, res) => {
-    res.render('crud')
-})
 

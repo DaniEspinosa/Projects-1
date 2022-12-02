@@ -1,0 +1,12 @@
+¿Que hace este codigo en el css?
+* {
+   margin: 0px;
+   padding: 0px;
+}
+(correcta: b)
+a) Cambia el color de los márgenes
+b) Resetea el estilo de la pagina
+c) Hace la página responsive
+d) La distancia de los items se amplia
+
+¿Boxshadow?
