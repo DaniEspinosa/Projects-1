@@ -1,67 +1,95 @@
 import * as React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function App() {
-  function HomeScreen({ navigation }) {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Pantalla principal</Text>
-        <View style={styles.botones}>
-          <Button
-            onPress={() => navigation.navigate("Profile", { userName: 'Daniel', edad: 19 })}
-            title={"Ir al perfil"}
-          />
-        </View>
-        <View style={styles.botones}>
-          <Button
-            onPress={() => navigation.navigate("Settings")}
-            title={"Ir a ajustes"}
-          />
-        </View>
-      </View>
-    );
-  }
+const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-  function ProfilePrincipal({route}) {
-    const { userName, edad } = route.params
-
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>{userName}, {edad}</Text>
-      </View>
-    );
-  }
-
-  function Ajustes() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Ajustes</Text>
-      </View>
-    );
-  }
-
-  const Stack = createNativeStackNavigator();
-
-
+function HomeStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator inicialRouteName="Profile">
+      <Stack.Navigator inicialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Pantalla Principal" }} />
-        <Stack.Screen name="Profile" component={ProfilePrincipal} options={{ title: "Mi perfil" }} />
-        <Stack.Screen name="Settings" component={Ajustes} options={{ title: "Ajustes" }} />
+        <Stack.Screen name="Profile" component={ProfilePrincipalScreen} options={{ title: "Mi perfil" }} />
       </Stack.Navigator>
     </NavigationContainer>
+  );
+}
 
+function HomeScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Este es la pantalla principal</Text>
+      <Button
+            onPress={() => navigation.navigate("Profile")}
+            title={"Ir al perfil"}
+          />
+    </View>
+  );
+}
+
+function ProfilePrincipalScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Este es el perfil</Text>
+      <Button
+            onPress={() => navigation.navigate("Profile")}
+            title={"Ir al perfil"}
+          />
+    </View>
+  );
+}
+
+
+
+function SettingsScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Este es la pantalla de ajustes</Text>
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'settings' : 'settings-outline';
+            } 
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: 'grey',
+        })}
+      >
+        <Tab.Screen name="HomeTab" component={HomeStack} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  botones: {
-    marginLeft: 40,
-    marginRight: 40,
-    marginBottom: 5,
-    marginTop: 5
+  text: {
+    fontSize: 80,
+    color: 'white'
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'grey'
   }
 })
