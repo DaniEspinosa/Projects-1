@@ -3,10 +3,16 @@
    margin: 0px;
    padding: 0px;
 }
-(correcta: b)
-a) Cambia el color de los márgenes
-b) Resetea el estilo de la pagina
-c) Hace la página responsive
-d) La distancia de los items se amplia
+	(correcta: b)
+		a) Cambia el color de los márgenes
+		b) Resetea el estilo de la pagina
+		c) Hace la página responsive
+		d) La distancia de los items se amplia
 
-¿Boxshadow?
+
+¿Para que se usa la propiedad box-shadow?
+	(correcta: c)
+		a) Redondea las esquinas del borde exterior de un elemento
+		b) Agrega sombra al texto
+		c) Proyecta una sombra difuminada desde el marco de casi cualquier elemento
+		d) Proyecta una sombra difuminada dentro del elemento
