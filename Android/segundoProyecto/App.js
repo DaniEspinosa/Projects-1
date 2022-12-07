@@ -6,10 +6,10 @@ export default function App() {
   const DATA = [
     {
       id: '1',
-      name: 'Andres',
+      name: 'Antonio',
       surname: 'Luna',
       phone: '722229443',
-      icons: <Icon name="account-circle" size={50} />
+      button: <Icon name="account-circle" size={50} />
     },
     {
       id: '2',
