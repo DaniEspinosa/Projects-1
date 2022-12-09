@@ -27,6 +27,7 @@ const app = express()
 
     //Configurar estilos CSS
     app.use(express.static(join(__dirname, 'public')))
+    
 
 
 
