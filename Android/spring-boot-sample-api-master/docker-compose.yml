@@ -1,0 +1,46 @@
+version: '2.4'
+
+services:
+  api:
+    build:
+      context: .
+    mem_limit: 1G
+    container_name: api
+    hostname: api
+    ports:
+      - 8080:8080
+    environment:
+      JAVA_OPTS: "-Xms512m -Xmx1024m"
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_SCHEMA: test
+      DB_USER: test_user
+      DB_PASS: test_pass
+    entrypoint: /dockerize -timeout 600s -wait tcp://mysql:3306 /entrypoint.sh
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 30s
+
+  mysql:
+    image: mysql:8.0.27
+    mem_limit: 1G
+    container_name: mysql
+    hostname: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    cap_add:
+      - SYS_NICE
+    volumes:
+      - ./mysql/scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p$$MYSQL_ROOT_PASSWORD' ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 30s
