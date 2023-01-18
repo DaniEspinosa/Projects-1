@@ -11,8 +11,12 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    background-color: rgba(127, 231, 145, 0.61);
+    grid-template-areas:    'header  header  header'
+                            'nav     nav     nueva'
+                            'aside   content nueva'
+                            'aside   content nueva'
+                            'footer  footer  nueva';
+    background-color: rgba(127, 231, 145, 0.61); 
     border: 2px solid black;
     width: 70%;
     margin: 0 auto;
@@ -28,13 +32,13 @@ body {
 .header {
     font-size: 50px;
     background-color: rgb(255, 104, 104);
-    grid-column: 1/5;
+    grid-area: header;
     line-height: 150px;
 }
 
 .nav {
     font-size: 40px;
-    grid-column: 1/5;
+    grid-area: nav;
     background-color: beige;
     color: black;
     line-height: 70px;
@@ -42,21 +46,29 @@ body {
 
 .content {
     font-size: 100px;
-    grid-column: 1/4;
+    grid-area: content;
     line-height: 500px;
 }
 
 .aside {
     font-size: 20px;
-    grid-column: 4/5;
+    grid-area: aside;
     line-height: 500px;
     background-color: burlywood;
     color: black;
 }
 
+.nueva {
+    color: black;
+    font-size: 50px;
+    background-color: rgb(255, 242, 0);
+    grid-area: nueva;
+    line-height: 150px;
+}
+
 .footer {
     font-size: 50px;
     background-color: green;
-    grid-column: 1/5;
+    grid-area: footer;
     line-height: 150px;
 }
