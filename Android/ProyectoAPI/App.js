@@ -30,15 +30,13 @@ export default function App() {
   }, []);
 
   const printElement = ({ item }) => {
-    if (!loading) {
-      return(<Text>Cargando...</Text>)
-    } else {
+    
       return (
         <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
           <Text style={styles.text}>{item.id}: {item.name}, {item.price}€</Text>
         </ScrollView>
       )
-    }
+    
   }
 
   return (
