@@ -14,7 +14,7 @@ export default function App() {
 
   useEffect(() => {
     setLoading(true)
-    fetch("http://192.168.137.1a:8080/fruits")
+    fetch("http://10.88.9.74:8080/fruits")
       .then(response => response.json())
       .then((responseJson) => {
         console.log('getting data from fetch', responseJson);
