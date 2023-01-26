@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Button, RefreshControl, NativeModules, Text, View, FlatList, ScrollView, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, Button, RefreshControl, Text, View, FlatList, ScrollView, Image, TextInput, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -14,16 +14,6 @@ const wait = (timeout) => {
 
 const url = "http://10.88.1.224:8080/fruits"
 
-function MostrarImagen() {
-  if (item.name === "piña") {
-    setImagen('https://www.lechepuleva.es/documents/13930/203222/pi%C3%B1a_g.jpg/c585227d-e694-464d-87d7-3f2143dd33d9?t=1423480442000')
-    //<Image source={{ uri: 'https://www.lechepuleva.es/documents/13930/203222/pi%C3%B1a_g.jpg/c585227d-e694-464d-87d7-3f2143dd33d9?t=1423480442000' }}></Image>
-  } else if (item.name === "pera") {
-    //<Image source={{ uri: 'https://img.freepik.com/foto-gratis/fruta-pera-fresca-humeda_144627-17211.jpg?w=2000' }}></Image>
-    console.log('otro')
-  }
-}
-
 function HomeScreen() {
   const [frutas, setFrutas] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
@@ -31,20 +21,35 @@ function HomeScreen() {
   const [imagen, setImagen] = useState(null);
 
   useEffect(() => {
-    setLoading(true)
-    fetch(url)
-      .then(response => response.json())
-      .then((responseJson) => {
-        console.log('getting data from fetch', responseJson);
-        setFrutas(responseJson);
-        setLoading(false)
-      })
-      .catch(error => console.log('errores', error));
+    getFrutas()
   }, [])
+
+  const getFrutas = () => {
+    fetch(url)
+    .then(response => response.json())
+    .then((response) => {
+      console.log('getting data from fetch: ', response);
+      setFrutas(response);
+    })
+    .catch(error => console.log("El error es: ", error));
+  }
+
+
+  //useEffect(() => {
+  //  setLoading(true)
+  //  fetch(url)
+  //    .then(response => response.json())
+  //    .then((responseJson) => {
+  //      console.log('getting data from fetch', responseJson);
+  //      setFrutas(responseJson);
+  //      setLoading(false)
+  //    })
+  //    .catch(error => console.log('errores', error));
+  //}, [])
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
+    wait(2000).then(() => setRefreshing(false), getFrutas());
   }, []);
 
   const getImagen = (nombre) => {
@@ -63,10 +68,9 @@ function HomeScreen() {
   }
 
   const printElement = ({ item }) => {
-    console.log(getImagen("uva"))
     return (
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-        <Text style={styles.text}>{item.id}: {item.name}, {item.price}€ </Text>
+        <Text style={styles.text}> {item.name}, {item.price}€ </Text>
         <Image style={styles.imagen} source={{ uri: getImagen(item.name) }}></Image>
       </ScrollView>
     )
@@ -76,6 +80,8 @@ function HomeScreen() {
     <FlatList
       data={frutas}
       renderItem={printElement}
+      refreshControl={<RefreshControl refreshing={refreshing}
+      onRefresh={onRefresh} />}
     />
   );
 }
@@ -106,7 +112,6 @@ function SubirFruta(data) {
     }
   })
     .then(response => response.json())
-  NativeModules.DevSettings.reload()
 }
 
 const Tab = createBottomTabNavigator();
@@ -120,8 +125,8 @@ export default function App() {
             let iconName;
             if (route.name === 'Frutas') {
               iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'SubirFruta') {
-              iconName = focused ? 'nutrition' : 'nutrition-outline';
+            } else if (route.name === 'Subir Frutas') {
+              iconName = focused ? 'basket' : 'basket-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
