@@ -1,0 +1,174 @@
+Fernando Moreno Hergueta
+    
+1.¿Que puerto utiliza la base de datos MySQL por defecto?  
+a)1337 
+b)0420 
+c)6969 
+d)3306
+(respuesta d)
+
+Lucas Moreno Zabala
+    
+2.¿Como se puede referenciar Bootstrap? 
+a) Forma local 
+b) Referenciada via CDN 
+c) a y b son correctas 
+d) Javi invita a merendar
+(respuesta c)
+
+Samuele Manzella Fernandez
+    
+3.¿Qué es la autoridad en una URN?
+A) Nombre para asignar los identificadores
+B) Herramienta que permite identificar una parte del recurso principal de una URN.
+C) Elemento jerárquico que identifica la autoridad de nombres.
+D) La informacion principal de una URN
+respuesta: (C)
+
+Andres Cabañas Pechero
+    
+4.¿Qué es una API?
+
+a. permiten a dos componentes de software comunicarse entre sí mediante un conjunto de definiciones y protocolos
+b. es un protocolo de red el cual nos permite realizar una petición de datos y recursos 
+c.Componente hardware de un equipo
+d.es un error del sistema
+respuesta: (a)
+
+5.¿que es una API RESTFul?
+
+a.Protocolo de transmision de archivos
+b.Es una interfaz que dos sistemas de computación utilizan para intercambiar información de manera segura a través de Internet. 
+  La mayoría de las aplicaciones para empresas deben comunicarse con otras aplicaciones internas o de terceros para llevar a cabo varias tareas.
+c.Red tipo A
+d.Es un método de java
+respuesta: (b)
+
+Miguel Ignacio Guerrero García
+
+6.¿Qué es node?
+a) Es un entorno de ejecución de JavaScript 
+b)Un protocolo de red
+c)Una consola de comandos
+d)Un lenguaje de programación
+(respuesta a)
+
+7.¿Cómo se crea el packaje json?
+a) Con el comando npm update -save
+b) Con el comando npm init -y 
+c)Con el comando npx init -y
+d)Con el comando format
+(respuesta b)
+ 
+
+Daniel Espinosa Mauri
+    
+8.¿Que hace este codigo en el css?
+* {​​​​​​​
+   margin: 0px;
+   padding: 0px;
+}​​​​​​​
+    
+a) Cambia el color de los márgenes
+b) Resetea el estilo de la pagina
+c) Hace la página responsive
+d) La distancia de los items se amplia
+(correcta: b)
+
+
+
+9.¿Para que se usa la propiedad box-shadow?
+    
+a) Redondea las esquinas del borde exterior de un elemento
+b) Agrega sombra al texto
+c) Proyecta una sombra difuminada desde el marco de casi cualquier elemento
+d) Proyecta una sombra difuminada dentro del elemento
+(correcta: c)
+ 
+
+Monica Mariño Mateos
+    
+10.¿Que hace nodemon?
+a)Te reinstala windows
+b)Reinicia el servidor Node en cada cambio. 
+c)Te abre ¡booootstrap!
+d)abre el cmd
+
+(respuesta b)
+
+
+11.¿Como se instala una dependencia?
+a)npm install nombreDependencia 
+b)npx dependencia
+c)a y b son correctas
+d) ninguna es correcta
+
+(respuesta a)
+
+Antonio Jiménez González
+
+12.¿Qué efecto tiene la propiedad aling-items?
+a)Coloca los elementos en columna
+b)Da borde a los elementos
+c)Alinea el elemento dentro del bloque que lo contiene
+d)Ninguna es correcta
+(respuesta c)
+
+David Bejarano Llano
+13.¿Si utilizo #nombre a que estoy referenciando?"
+a.Una clase (class) (para referenciar esto es un .) 
+b.Un id (esta es la buena) 
+c.Un párrafo 
+d.Ninguna de las anteriores
+
+Álvaro Carrasco García
+
+14.¿Qué tipos selectores existen en CSS?
+
+a) Class(#) e ID(.)
+b) Todas son correctas
+c) Por etiqueta
+d) Por etiqueta, class(.) e ID(#)
+(Respuesta d) 
+
+
+15.¿Para qué se utiliza el módulo Morgan?
+
+a) Añade unas dependencias al proyecto
+b) Se utiliza para personalizar Visual Studio
+c) Muestra las peticiones por consola 
+d) Añade nuevos atajos al teclado
+(Respuesta c)
+
+Adrián Aparcero Gelado
+    
+16.¿Para que sirve la propiedad flex-flow?
+a. agrupa las propiedades de flex-direction y flex-wrap 
+b. determina la fluided de los elementos de un cajon
+c. fija el tamaño de la cabeza de Jimenez
+d. ninguna son correctas
+(Respuesta a)
+
+17.¿que es ejs?
+a. es un motor de plantillas utilizado por node.js 
+b. son las siglas de extension justify security
+c. todas son correctas
+d. ninguna es correcta
+(correcta a)
+
+Jose Manuel Rodriguez Cortes
+    
+18.¿Para que sirve el justyfy content?
+a)Para alinear los elementos
+b)Para importar Boostrap
+c)Para colocar a la izquierda los elementos 
+d)Para crear una API
+respuesta correcta ( a) )
+
+19.¿Qué es el border radius?
+a)Para poner sobra a los bordes
+b)Para comprar pan online
+c)Para redondear las esquinas de los bordes
+d)Para crear un módulo de Odoo
+respuesta correcta ( c) )
+

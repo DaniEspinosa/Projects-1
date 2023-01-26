@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(0, 110, 255, 0.699);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas:    'header  header  header'
+                            'nav     nav     nueva'
+                            'aside   content nueva'
+                            'aside   content nueva'
+                            'footer  footer  nueva';
+    background-color: rgba(127, 231, 145, 0.61); 
+    border: 2px solid black;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.cajas {
+    border: 2px solid black;
+    background-color: blueviolet;
+    text-align: center;
+    color: white;
+}
+
+.header {
+    font-size: 50px;
+    background-color: rgb(255, 104, 104);
+    grid-area: header;
+    line-height: 150px;
+}
+
+.nav {
+    font-size: 40px;
+    grid-area: nav;
+    background-color: beige;
+    color: black;
+    line-height: 70px;
+}
+
+.content {
+    font-size: 100px;
+    grid-area: content;
+    line-height: 500px;
+}
+
+.aside {
+    font-size: 20px;
+    grid-area: aside;
+    line-height: 500px;
+    background-color: burlywood;
+    color: black;
+}
+
+.nueva {
+    color: black;
+    font-size: 50px;
+    background-color: rgb(255, 242, 0);
+    grid-area: nueva;
+    line-height: 150px;
+}
+
+.footer {
+    font-size: 50px;
+    background-color: green;
+    grid-area: footer;
+    line-height: 150px;
+}
