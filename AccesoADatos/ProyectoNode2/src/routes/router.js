@@ -1,17 +1,12 @@
 import { Router } from 'express';
+import { vistaHome, vistaLogin, vistaRegistro } from '../controller/indexRoutex.js';
 const router = Router()
 
 // Crear nuestras rutas para las diferentes paginas
-router.get('/', (req, res) => {
-    res.render('index', {title: 'Home'})
-})
+router.get('/', vistaHome)
 
-router.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'})
-})
+router.get('/login', vistaLogin)
 
-router.get('/registro', (req, res) => {
-    res.render('registro', {title: 'Registro'})
-})
+router.get('/registro', vistaRegistro)
 
 export default router;
