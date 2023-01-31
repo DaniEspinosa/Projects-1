@@ -15,7 +15,7 @@ const app = express();
 app.use(indexRoutes)
 
 // Crear el servidor
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 30001;
 app.listen(port);
 console.log('El servidor escucha en el puerto', port);
 
