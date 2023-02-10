@@ -4,6 +4,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import indexRoutes from './routes/router.js'
 import session from 'express-session'
+import dotenv from 'dotenv'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

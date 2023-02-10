@@ -1,11 +1,13 @@
 import { createPool } from 'mysql2/promise'
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 
 export const pool = createPool ({
-    host: 'localhost',
-    user: 'root',
-    password: 'Hola*12345',
-    port: 33061,
-    database: 'Node'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    database: process.env.DB_DATABASE
 })
 
 async function connectToDb() {
