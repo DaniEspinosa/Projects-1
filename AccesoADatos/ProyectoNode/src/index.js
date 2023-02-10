@@ -15,8 +15,9 @@ const app = express()
 
 // Configuraciones
     // Crear servidor
-    app.listen(4000);
-    console.log("El servidor funcina en el puerto 4000");
+    const port = process.env.PORT || 2000;
+    app.listen(port);
+    console.log("El servidor funciona en el puerto " + port);
 
     // Configurar el motor de plantilla EJS
     app.set('views', join(__dirname, 'views'))

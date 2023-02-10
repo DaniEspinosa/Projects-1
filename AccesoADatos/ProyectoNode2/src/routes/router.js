@@ -15,13 +15,10 @@ router.post('/', postMetodo)
 router.get('/daniel', async (req, res) => {
     await prisma.Users.create({
         data: {
-            name: "Daniel"
+            name: "Nacho"
         }
     })
     console.log(await prisma.Users.findMany())
 })
-
-
-
 
 export default router;

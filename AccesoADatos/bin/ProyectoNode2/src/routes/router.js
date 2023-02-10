@@ -1,17 +1,24 @@
 import { Router } from 'express';
+import { pool } from '../db.js';
+import { PrismaClient } from '@prisma/client'
+import { vistaHome, vistaLogin, vistaRegistro, postMetodo } from '../controller/indexRoutex.js';
+
+const prisma = new PrismaClient()
 const router = Router()
 
 // Crear nuestras rutas para las diferentes paginas
-router.get('/', (req, res) => {
-    res.render('index', {title: 'Home'})
-})
+router.get('/', vistaHome)
+router.get('/login', vistaLogin)
+router.get('/registro', vistaRegistro)
+router.post('/', postMetodo)
 
-router.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'})
-})
-
-router.get('/registro', (req, res) => {
-    res.render('registro', {title: 'Registro'})
+router.get('/daniel', async (req, res) => {
+    await prisma.Users.create({
+        data: {
+            name: "Nacho"
+        }
+    })
+    console.log(await prisma.Users.findMany())
 })
 
 export default router;
