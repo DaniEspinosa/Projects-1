@@ -14,11 +14,6 @@ router.get('/login', vistaLogin)
 router.get('/registro', vistaRegistro)
 router.post('/', postMetodo)
 
-router.use(session({
-    secret: '12345',
-    resave: true,
-    saveUninitialized: true
-}))
 
 router.post('/auth', async (req, res) => {
     const user = req.body.user;
